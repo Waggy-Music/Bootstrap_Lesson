@@ -1,0 +1,57 @@
+<header class="shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+    <h1 class="text-light bg-dark">Posts</h1>
+  </nav>
+</header>  
+
+<p id="notice"><%= notice %></p>
+
+
+<div class="container">
+  <div class="row">
+   <div class="col-lg-4" style="background-color: orange;">
+    <h2>サイドバー</h2>
+   </div>  
+  <div class="col-lg-8">
+<table class="table table striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Author</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.body %></td>
+        <td><%= post.author %></td>
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+  <p class="text-primary">.text-primary</p>
+<p class="text-secondary">.text-secondary</p>
+<p class="text-success">.text-success</p>
+<p class="text-danger">.text-danger</p>
+<p class="text-warning bg-dark">.text-warning</p>
+<p class="text-info bg-dark">.text-info</p>
+<p class="text-light bg-dark">.text-light</p>
+<p class="text-dark">.text-dark</p>
+<p class="text-body">.text-body</p>
+<p class="text-muted">.text-muted</p>
+<p class="text-white bg-dark">.text-white</p>
+<p class="text-black-50">.text-black-50</p>
+<p class="text-white-50 bg-dark">.text-white-50</p>
+  </div>
+</div>
+  </div>
+<br>
+  
+<%= link_to 'New Post', new_post_path, class: "btn btn-secondary" %>
