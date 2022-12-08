@@ -8,50 +8,129 @@
 
 
 <div class="container">
-  <div class="row">
-   <div class="col-lg-4" style="background-color: orange;">
-    <h2>サイドバー</h2>
-   </div>  
-  <div class="col-lg-8">
-<table class="table table striped">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Author</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.body %></td>
-        <td><%= post.author %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-  <p class="text-primary">.text-primary</p>
-<p class="text-secondary">.text-secondary</p>
-<p class="text-success">.text-success</p>
-<p class="text-danger">.text-danger</p>
-<p class="text-warning bg-dark">.text-warning</p>
-<p class="text-info bg-dark">.text-info</p>
-<p class="text-light bg-dark">.text-light</p>
-<p class="text-dark">.text-dark</p>
-<p class="text-body">.text-body</p>
-<p class="text-muted">.text-muted</p>
-<p class="text-white bg-dark">.text-white</p>
-<p class="text-black-50">.text-black-50</p>
-<p class="text-white-50 bg-dark">.text-white-50</p>
-  </div>
-</div>
-  </div>
-<br>
+      <div class="row">
+       <div class="list-unstyled col-lg-4" style="background-color: orange;">
+        <h2>サイドバー</h2>
+       </div>  
+      <div class="col-lg-8">
+    <table class="table table striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Body</th>
+          <th>Author</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <% @posts.each do |post| %>
+          <tr>
+            <td><%= post.title %></td>
+            <td><%= post.body %></td>
+            <td><%= post.author %></td>
+            <td><%= link_to 'Show', post %></td>
+            <td><%= link_to 'Edit', edit_post_path(post) %></td>
+            <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="text_test">
+      <p class="text-primary">.text-primary</p>
+    <p class="text-secondary">.text-secondary</p>
+    <p class="text-success">.text-success</p>
+    <p class="text-danger">.text-danger</p>
+    <p class="text-warning bg-dark">.text-warning</p>
+    <p class="text-info bg-dark">.text-info</p>
+    <p class="text-light bg-dark">.text-light</p>
+    <p class="text-dark">.text-dark</p>
+    <p class="text-body">.text-body</p>
+    <p class="text-muted">.text-muted</p>
+    <p class="text-white bg-dark">.text-white</p>
+    <p class="text-black-50">.text-black-50</p>
+    <p class="text-white-50 bg-dark">.text-white-50</p>
+    </div>
+      </div>
+    </div>
+      
+      
   
-<%= link_to 'New Post', new_post_path, class: "btn btn-secondary" %>
+      <%= link_to 'New Post', new_post_path, class: "btn btn-secondary" %>
+
+      <div class="card m-1 offset-3" style="width: 12rem;">
+        <div class="card-body">
+         body
+         <p class="card-title">title</p>
+         <p class="card-subtitle">subtitle</p>
+        </div>
+      </div>
+      
+      
+      <div class="border list-unstyled col-7 ">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+      </div>
+    
+    
+    <div class="border col-5">
+        <br>
+        <h2>バリデーション</h2>
+        <br>
+        <div class="row">
+            <div class="col-md">
+                <form>
+                    <div class="form-group">
+                        <h3>正常終了サンプル</h3>
+                        <div class="col-12 mb-5 border">
+                            <label>名前：</label>
+                            <input type="text" class="form-control is-valid" required value="侍エンジニア1">
+                            <div class="valid-feedback">
+                                登録に成功しました！
+                            </div>
+                            <br>
+                            <label>部署：</label>
+                            <select class="form-control is-valid">
+                                <option>システム開発部</option>
+                                <option>SEOマーケティング部</option>
+                                <option>人事・総務部</option>
+                                <option>営業本部</option>
+                            </select>
+                            <div class="valid-feedback">
+                                登録に成功しました！
+                            </div>
+                            <br>
+                        </div>
+                        <h3>異常終了サンプル</h3>
+                        <div class="col-12 mb-5 border">
+                            <label>名前：</label>
+                            <input type="text" class="form-control is-invalid" required value="111111">
+                            <div class="invalid-feedback">
+                                文字列を入力してください！
+                            </div>
+                            <br>
+                            <label>部署：</label>
+                            <select class="form-control is-invalid">
+                                <option></option>
+                                <option>システム開発部</option>
+                                <option>SEOマーケティング部</option>
+                                <option>人事・総務部</option>
+                                <option>営業本部</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                選択は必須です！
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+    
+<br>
+<br>
+<br>      
+</div>
